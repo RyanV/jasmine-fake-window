@@ -28,7 +28,7 @@ describe("MyObjectNamespace.window.location.href", function() {
   it('does not change the page location', function() {
     expect(MyObject.window.location.href).toBeDefined();
     MyObject.window.location.href = 'http://www.fake.com';
-    // this spec would never run otherwisde, because it would navigate
+    // this spec would never run otherwise, because it would navigate
     // to another page.
     expect(MyObject.window.location.href).toEqual('http://www.fake.com');
   });
