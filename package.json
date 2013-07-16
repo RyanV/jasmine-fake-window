@@ -1,15 +1,16 @@
 {
-  "name": "fake_window",
+  "name": "jasmine-fake-window",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
-  "devDependencies": {
-    "jasmine-node": "*",
-    "jasmine-node-exec": "*"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "BSD"
+  "license": "BSD",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.4.4"
+  }
 }
