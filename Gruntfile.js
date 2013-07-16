@@ -16,12 +16,19 @@ module.exports = function(grunt) {
     watch: {
       files: ["<%= jshint.files %>"],
       tasks: ["jasmine", "jshint"]
+    },
+    preprocess: {
+      dist : {
+        src : 'build/jasmine_fake_window.build.js',
+        dest : 'dist/jasmine_fake_window.js'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-preprocess');
 
   grunt.registerTask('default', ['jshint', 'jasmine']);
   grunt.registerTask("dev", ["jshint", "jasmine", "watch"]);
