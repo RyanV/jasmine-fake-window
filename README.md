@@ -15,8 +15,8 @@ download _jasmine-fake-window.js_ from [here](https://raw.github.com/ryanv/jasmi
 // source file
 MyObjectNamespace = {
   window: window,
-  url: function() {
-    return MyObjectNamespace.window.location.href
+  goToUrl: function(url) {
+    MyObjectNamespace.window.location.href = url
   }
 }
 // MyObjectNamespace spec
@@ -26,11 +26,13 @@ describe("MyObjectNamespace.window.location.href", function() {
   });
 
   it('does not change the page location', function() {
-    expect(MyObject.window.location.href).toBeDefined();
     MyObject.window.location.href = 'http://www.fake.com';
     // this spec would never run otherwise, because it would navigate
     // to another page.
     expect(MyObject.window.location.href).toEqual('http://www.fake.com');
+    MyObject.goToUrl('http://www.google.com');
+    // this spec wouldn't ever run either
+    expect(MyObject.window.location.href).toEqual('http://www.google.com');
   });
 });
 ```
